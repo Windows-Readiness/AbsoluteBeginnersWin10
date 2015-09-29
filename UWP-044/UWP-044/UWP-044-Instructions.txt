@@ -1,0 +1,84 @@
+UWP-044 - Adeptly Adaptive Challenge
+
+Note: Even if you're fast and you don't make mistakes, this should take at least 45 miutes, more likely, 90 minutes.  Don't get discouraged if it takes you 4 hours or more!  Keep struggling!!!
+
+We'll (sort of) re-create a previous challenge, but adding in some adaptive resizing elements.
+
+Specific Requirements
+=====================
+
+1.  You'll create the beginning of a fake News app.  Each news item will contain an image, headline, subhead and dateline.  There will be two navigation items in the SplitView: Financial and Food.  Use techiques discussed previously to create this.  Selecting each of the navigation items will change the news items to display only those Financial items versus only those Food items.
+
+2.  NewsItem class that contains the definition for a NewsItem class with the following properties:
+
+Id
+Category
+Headline
+Subhead
+DateLine
+Image
+
+3.  You'll probably need another class that serves as a Factory / Manager style class to create instances of NewsItem and populates properties with Lorem Ipsum text and returns them as a collection of NewsItem suitable for data binding.  I used object initilizer syntax to do this.
+
+Note: Use fake Lorem Ipsum text for the Headline, Subhead, DateLine.
+
+Note: The Category should be either "Food" or "Financial".  I use a string (lazy) but you could use an enum for this.
+
+Note: For Image, use the path of the food and financial images.  I.e.,:  Assets/Food2.png
+
+Note: When a user requests code from this Factory / Manager class, be sure to filter by Category.
+
+Note: I provide a helper method of the Factory / Manager class that contains the data you'll need for the app.  (See below.)
+
+4. See screen shots.  You only need one page: MainPage.xaml.  You will filter the list of news items based on the Category property of the NewsItem class, adding / removing items from the collection that your GridView will bind to.
+
+5. Each NewsItem should be 200 wide x 275 tall when in a narrow state, and 400 wide x 400 tall when in a wide state (900 min window width).  In the narrow state, the Headline should be 18 point and 26 point in the wide state.
+
+6. Hide the AutoSuggestBox when the width is less than 400.
+
+
+General
+========
+7. Margins are usually 20, sometimes 10.
+
+8. Fonts are usually 18.  Make the page title (of the hamburger nav) bold.
+
+9. Light gray background is "LightGray".
+
+10.  You'll need some Segoe MDL2 Assets ... 
+
+&#xE80F;  (Home)
+
+&#xE1CE;  (Star)
+
+&#xE700;  (Hamburger)
+
+
+Use these images as your guide: UWP-044-A.png through UWP-044-C.png
+
+Remember: Try to solve this without my help!
+Also: Only watch enough of the solution video to get unstuck.
+
+If you do solve it without my help, you should watch the entire solution video to see a different approach.
+
+
+=========================
+
+
+private static List<NewsItem> getNewsItems()
+{
+  var items = new List<NewsItem>();
+
+  items.Add(new NewsItem() { Id = 1, Category = "Financial", Headline = "Lorem Ipsum", Subhead = "doro sit amet", DateLine = "Nunc tristique nec", Image = "Assets/Financial1.png" });  
+  items.Add(new NewsItem() { Id = 2, Category = "Financial", Headline = "Etiam ac felis viverra", Subhead = "vulputate nisl ac, aliquet nisi", DateLine = "tortor porttitor, eu fermentum ante congue", Image = "Assets/Financial2.png" });
+  items.Add(new NewsItem() { Id = 3, Category = "Financial", Headline = "Integer sed turpis erat", Subhead = "Sed quis hendrerit lorem, quis interdum dolor", DateLine = "in viverra metus facilisis sed", Image = "Assets/Financial3.png" });
+  items.Add(new NewsItem() { Id = 4, Category = "Financial", Headline = "Proin sem neque", Subhead = "aliquet quis ipsum tincidunt", DateLine = "Integer eleifend", Image = "Assets/Financial4.png" });  items.Add(new NewsItem() { Id = 5, Category = "Financial", Headline = "Mauris bibendum non leo vitae tempor", Subhead = "In nisl tortor, eleifend sed ipsum eget", DateLine = "Curabitur dictum augue vitae elementum ultrices", Image = "Assets/Financial5.png" });
+
+  items.Add(new NewsItem() { Id = 6, Category = "Food", Headline = "Lorem ipsum", Subhead = "dolor sit amet", DateLine = "Nunc tristique nec", Image = "Assets/Food1.png" });
+  items.Add(new NewsItem() { Id = 7, Category = "Food", Headline = "Etiam ac felis viverra", Subhead = "vulputate nisl ac, aliquet nisi", DateLine = "tortor porttitor, eu fermentum ante congue", Image = "Assets/Food2.png" });
+  items.Add(new NewsItem() { Id = 8, Category = "Food", Headline = "Integer sed turpis erat", Subhead = "Sed quis hendrerit lorem, quis interdum dolor", DateLine = "in viverra metus facilisis sed", Image = "Assets/Food3.png" });
+  items.Add(new NewsItem() { Id = 9, Category = "Food", Headline = "Proin sem neque", Subhead = "aliquet quis ipsum tincidunt", DateLine = "Integer eleifend", Image = "Assets/Food4.png" });
+  items.Add(new NewsItem() { Id = 10, Category = "Food", Headline = "Mauris bibendum non leo vitae tempor", Subhead = "In nisl tortor, eleifend sed ipsum eget", DateLine = "Curabitur dictum augue vitae elementum ultrices", Image = "Assets/Food5.png" });
+
+  return items;
+}

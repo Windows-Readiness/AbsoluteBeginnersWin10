@@ -1,0 +1,19 @@
+UWP-011 - Laudable Layout Challenge
+
+1. Use only a Grid control.
+2. I used the designer of a 5" Phone 1920x1080 300% scale.
+3. The large textblock's size is 48 points.
+4. Most of the margins are either 10 or 20 pixels.
+5. The TextBlocks for First Name, Last Name and Email should be centered vertically in the row.
+
+6. Tricky: You'll need to figure out how to allow your TextBlock title to span multiple columns.
+(Hint: Use Intellisense!)
+
+Use this image as your guide: UWP-011-Screenshot.png
+
+Remember: Try to solve this without my help!
+Also: Only watch enough of the solution video to get unstuck.
+
+If you do solve it without my help, you should watch the entire solution video to see a different approach.
+
+

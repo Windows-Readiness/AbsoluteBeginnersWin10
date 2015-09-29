@@ -1,0 +1,120 @@
+UWP Cheat Sheet
+***************
+
+UWP-04 - What is XAML?
+=======================================
+XAML - XML Syntax, create instances of Classes that define the UI.
+
+UWP-05 - Understanding Type Converters
+=======================================
+Type Converters - Convert literal strings in XAML into enumerations, instances of classes, etc.
+
+
+UWP-06 - Understanding Default Properties, 
+Complex Properties and the 
+Property Element Syntax
+=======================================
+
+Default Property ... Ex. sets Content property:
+<Button>Click Me</Button>
+
+
+Complex Properties - Break out a property into its own element syntax:
+
+        <Button Name="ClickMeButton"
+                HorizontalAlignment="Left"
+                Content="Click Me"
+                Margin="20,20,0,0" 
+                VerticalAlignment="Top" 
+                Click="ClickMeButton_Click"
+                Width="200"
+                Height="100"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+UWP-07 - Understanding XAML Schemas 
+and Namespace Declarations
+=======================================
+
+Don't touch the schema stuff - it's necessary!
+
+Schemas define rules for XAML, for UWP, for designer support, etc.
+
+Namespaces tell XAML parser where to find the definition / 
+rules for a given element in the XAML.
+
+
+
+UWP-08 - XAML Layout with Grids
+========================================
+
+Layout controls don't have a content property ...
+they have a Chidren property of type UIElementCollection.
+
+By embedding any control inside of a layout control,
+you are implicitly calling the Add method of the Children
+collection property.
+
+<Grid Background="Black">
+  <Grid.RowDefinitions>
+    <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+  </Grid.RowDefinitions>
+  <Grid.ColumnDefinitions>
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+  </Grid.ColumnDefinitions>
+</Grid>
+
+
+Sizes expressed in terms of:
+
+Explicit pixels - 100
+
+Auto - use the largest value of elements it contains to define the width / height
+
+* (Star Sizing) - Utilize all the available space
+
+1* - Of all available space, give me 1 "share"
+2* - Of all available space, give me 2 "shares" 
+3* - Of all available space, give me 3 "shares"
+
+6 total shares ... 3* would be 50% of the available width / height.
+
+Elements put themselves into rows and columns using attached property syntax:
+
+...
+  ...
+  <Button Grid.Row="0" />
+</Grid>
+
+- When referencing Rows and Columns ... 0-based.
+- There's always one default implicit cell: Row 0, Column 0
+- If not specified, element will be in the default cell
+
+UWP-09 - XAML Layout with StackPanel
+====================================
+
+<StackPanel>
+  <TextBlock>Top</TextBlock>
+  <TextBlock>Bottom</TextBlock>
+</StackPanel>
+
+- Vertical Orientation by default.
+- Left-to-right flow by default when Horizontal orientation.
+- Most layouts will combine multiple layout controls.
+- Grid will overlap controls.  StackPanel will stack them.
+
+
+
+
+

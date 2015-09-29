@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="ListViewExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ListViewExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:ListViewExample.Model" 
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="BookListDataTemplate" x:DataType="data:Book">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Name="image" Source="{x:Bind CoverImage}" HorizontalAlignment="Center" Width="150" />
+                <StackPanel Margin="20,20,0,0">
+                    <TextBlock Text="{x:Bind Title}" HorizontalAlignment="Left" FontSize="16" />
+                    <TextBlock Text="{x:Bind Author}" HorizontalAlignment="Left" FontSize="10" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" 
+                   Name="ResultTextBlock" 
+                   FontSize="24" 
+                   Foreground="Red" 
+                   FontWeight="Bold" 
+                   Margin="20,20,0,0" />
+        <ListView ItemsSource="{x:Bind Books}" 
+                  ItemClick="ListView_ItemClick" 
+                  IsItemClickEnabled="True" 
+                  ItemTemplate="{StaticResource BookListDataTemplate}">
+        </ListView>
+    </Grid>
+</Page>

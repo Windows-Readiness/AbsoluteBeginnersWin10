@@ -1,0 +1,10 @@
+﻿<tile>
+    <visual version="2">
+        <binding template="TileSquare150x150Text01" fallback="TileSquareText01">
+            <text id="1">@ViewBag.Temp</text>
+            <text id="2">@ViewBag.Description</text>
+            <text id="3">@ViewBag.Name</text>
+            <text id="4">@DateTime.Now.ToShortTimeString()</text>
+        </binding>
+    </visual>
+</tile>

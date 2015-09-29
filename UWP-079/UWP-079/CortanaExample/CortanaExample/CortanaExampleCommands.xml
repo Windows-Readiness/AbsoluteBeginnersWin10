@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+  <CommandSet xml:lang="en-us" Name="ExampleAppCommandSet_en-us">
+    <CommandPrefix> Example App, </CommandPrefix>
+    <Example> Add a rectangle </Example>
+
+    <Command Name="addRectangle">
+      <Example> add a rectangle  </Example>
+      <ListenFor> add [a] rectangle </ListenFor>
+      <ListenFor> add a {color} rectangle </ListenFor>
+      <Feedback> Adding a rectangle </Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="addCircle">
+      <Example> add a circle  </Example>
+      <ListenFor> add [a] circle </ListenFor>
+      <ListenFor> add a {color} circle </ListenFor>
+      <Feedback> Adding a circle </Feedback>
+      <Navigate/>
+    </Command>
+
+    <PhraseList Label="color">
+      <Item>Red</Item>
+      <Item>Blue</Item>
+      <Item>Yellow</Item>
+      <Item>Green</Item>
+    </PhraseList>
+
+  </CommandSet>
+
+  <!-- Other CommandSets for other languages -->
+
+</VoiceCommands>

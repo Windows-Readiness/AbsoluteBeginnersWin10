@@ -1,0 +1,20 @@
+UWP-015 - Laborious Layout Challenge
+
+1. Use both Grids and StackPanels.
+2. I use the designer of a 13.3 Desktop (1280 x 720) 100% Scale.
+3. The width of the entire layout should be 500 pixels.
+4. Again, get the text from the LoremIpsum.txt file.
+5. Most of the margins are either 10 or 20 pixels.
+6. The Title TextBlocks have a font size of 24 points.
+7. The Rectangles should be 100 wide by 30 tall.
+8. The color of the rectangles below each titled section:
+-- Title 1: Green, Black, Red
+-- Title 2: Red, Black, Blue 
+-- Title 3: Blue, Black, Yellow
+
+Use this image as your guide: UWP-015-Screenshot.png
+
+Remember: Try to solve this without my help!
+Also: Only watch enough of the solution video to get unstuck.
+
+If you do solve it without my help, you should watch the entire solution video to see a different approach.

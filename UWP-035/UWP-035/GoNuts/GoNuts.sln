@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoNuts", "GoNuts\GoNuts.csproj", "{D74316BA-B813-4820-830D-0D0837A58FEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|ARM.ActiveCfg = Debug|ARM
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|ARM.Build.0 = Debug|ARM
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|ARM.Deploy.0 = Debug|ARM
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|x64.ActiveCfg = Debug|x64
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|x64.Build.0 = Debug|x64
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|x64.Deploy.0 = Debug|x64
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|x86.ActiveCfg = Debug|x86
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|x86.Build.0 = Debug|x86
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Debug|x86.Deploy.0 = Debug|x86
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|ARM.ActiveCfg = Release|ARM
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|ARM.Build.0 = Release|ARM
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|ARM.Deploy.0 = Release|ARM
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|x64.ActiveCfg = Release|x64
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|x64.Build.0 = Release|x64
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|x64.Deploy.0 = Release|x64
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|x86.ActiveCfg = Release|x86
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|x86.Build.0 = Release|x86
+		{D74316BA-B813-4820-830D-0D0837A58FEB}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

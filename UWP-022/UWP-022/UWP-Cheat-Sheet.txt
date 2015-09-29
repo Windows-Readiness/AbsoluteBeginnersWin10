@@ -1,0 +1,280 @@
+UWP Cheat Sheet
+***************
+
+UWP-004 - What is XAML?
+=======================================
+XAML - XML Syntax, create instances of Classes that define the UI.
+
+UWP-005 - Understanding Type Converters
+=======================================
+Type Converters - Convert literal strings in XAML into enumerations, instances of classes, etc.
+
+
+UWP-006 - Understanding Default Properties, 
+Complex Properties and the 
+Property Element Syntax
+=======================================
+
+Default Property ... Ex. sets Content property:
+<Button>Click Me</Button>
+
+
+Complex Properties - Break out a property into its own element syntax:
+
+        <Button Name="ClickMeButton"
+                HorizontalAlignment="Left"
+                Content="Click Me"
+                Margin="20,20,0,0" 
+                VerticalAlignment="Top" 
+                Click="ClickMeButton_Click"
+                Width="200"
+                Height="100"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+UWP-007 - Understanding XAML Schemas 
+and Namespace Declarations
+=======================================
+
+Don't touch the schema stuff - it's necessary!
+
+Schemas define rules for XAML, for UWP, for designer support, etc.
+
+Namespaces tell XAML parser where to find the definition / 
+rules for a given element in the XAML.
+
+
+
+UWP-008 - XAML Layout with Grids
+========================================
+
+Layout controls don't have a content property ...
+they have a Chidren property of type UIElementCollection.
+
+By embedding any control inside of a layout control,
+you are implicitly calling the Add method of the Children
+collection property.
+
+<Grid Background="Black">
+  <Grid.RowDefinitions>
+    <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+  </Grid.RowDefinitions>
+  <Grid.ColumnDefinitions>
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+  </Grid.ColumnDefinitions>
+</Grid>
+
+
+Sizes expressed in terms of:
+
+Explicit pixels - 100
+
+Auto - use the largest value of elements it contains to define the width / height
+
+* (Star Sizing) - Utilize all the available space
+
+1* - Of all available space, give me 1 "share"
+2* - Of all available space, give me 2 "shares" 
+3* - Of all available space, give me 3 "shares"
+
+6 total shares ... 3* would be 50% of the available width / height.
+
+Elements put themselves into rows and columns using attached property syntax:
+
+...
+  ...
+  <Button Grid.Row="0" />
+</Grid>
+
+- When referencing Rows and Columns ... 0-based.
+- There's always one default implicit cell: Row 0, Column 0
+- If not specified, element will be in the default cell
+
+UWP-009 - XAML Layout with StackPanel
+====================================
+
+<StackPanel>
+  <TextBlock>Top</TextBlock>
+  <TextBlock>Bottom</TextBlock>
+</StackPanel>
+
+- Vertical Orientation by default.
+- Left-to-right flow by default when Horizontal orientation.
+- Most layouts will combine multiple layout controls.
+- Grid will overlap controls.  StackPanel will stack them.
+
+
+UWP-017 - XAML Layout with the RelativePanel
+====================================
+It basically defines an area within which you can position and align child objects 
+-- in relation to each other 
+-- or in relation to the parent panel.
+
+Controls use attached properties to position themselves.
+
+Panel alignment relationships (AlignTopWithPanel, AlignLeftWithPanel, …) are applied first.
+Sibling alignment relationships (AlignTopWith, AlignLeftWith, …) are applied second.
+Sibling positional relationships (Above, Below, RightOf, LeftOf) are applied last.
+
+<RelativePanel MinHeight="300" Grid.Row="1">    
+    <Rectangle Name="RedRectangle" RelativePanel.AlignRightWithPanel="True" />
+    <Rectangle RelativePanel.LeftOf="RedRectangle" />
+</RelativePanel>
+
+
+UWP-018 - XAML Layout with the SplitPanel
+====================================
+The split view allows us to create a panel that
+can be displayed or hidden.  
+
+We would use the SplitView to implement
+hamburger navigation.
+
+The are two parts to a SplitView:
+1) The part that is hidden by default (Pane)
+2) The part that is shown by default (Content)
+
+You define other controls inside of the SplitView.Pane 
+and SplitView.Content.
+
+<SplitView Name="MySplitView" 
+    CompactPaneLength="50" 
+    IsPaneOpen="False" 
+    DisplayMode="CompactInline" 
+    OpenPaneLength="200" >
+    <SplitView.Pane>
+    </SplitView.Pane>
+    <SplitView.Content>
+    </SplitView.Content>
+</SplitView>
+
+Inline – Panel completely covers content.  When expanded, panel pushes content.
+
+CompactInline – Pane covers most of the Content.  When expanded, panel pushes content.
+
+Overlay – Panel completely covers content.  When expanded, panel covers content.
+
+CompactOverlay – Panel covers most of the content.  When expanded, panel covers content.
+
+Open / Close Pane in C#:
+MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+
+
+
+UWP_019 - Working with Navigation
+====================================
+App > Window > Frame > MainPage
+
+You can load pages into a child frame or into the root frame:
+
+Frame.Navigate(typeof(Page2), additionalParameter);
+
+
+You can retrieve additionalParameter on the page you navigated to:
+
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+      value = (string)e.Parameter;
+    }
+
+Traverse back stack (history):
+
+if (Frame.CanGoBack) {
+  Frame.GoBack();
+}
+
+if (Frame.CanGoForward) {
+  Frame.GoForward();
+}
+
+Create a global variable by declaring a static internal field in the App class definition.
+
+UWP-020 - Common XAML Controls - Part 1
+====================================
+
+<CheckBox Name="MyCheckBox" Content="Agree?" Tapped="MyCheckBox_Tapped" />
+
+CheckBoxResultTextBlock.Text = MyCheckBox.IsChecked.ToString();
+
+
+
+<RadioButton Name="YesRadioButton" Content="Yes" GroupName="MyGroup" checked="RadioButton_Checked" />
+<RadioButton Name="NoRadioButton" Content="No" GroupName="MyGroup" Checked="RadioButton_Checked" />
+
+RadioButtonTextBlock.Text = (bool)YesRadioButton.IsChecked ? "Yes" : "No";
+
+
+<ComboBox SelectionChanged="ComboBox_SelectionChanged" >
+    <ComboBoxItem Content="Fourth" />
+    <ComboBoxItem Content="Fifth" />
+    <ComboBoxItem Content="Sixth" IsSelected="True" />
+</ComboBox>
+
+
+if (ComboBoxResultTextBlock == null) return;
+var combo = (ComboBox)sender;
+var item = (ComboBoxItem)combo.SelectedItem;
+ComboBoxResultTextBlock.Text = item.Content.ToString();
+
+
+<ListBox Name="MyListBox" SelectionMode="Multiple" SelectionChanged="ListBox_SelectionChanged">
+    <ListBoxItem Content="First" />
+    <ListBoxItem Content="Second" />
+    <ListBoxItem Content="Third" />
+</ListBox>
+
+var selectedItems = MyListBox.Items.Cast<ListBoxItem>()
+                      .Where(p => p.IsSelected)
+                        .Select(t => t.Content.ToString())
+                          .ToArray();
+
+ListBoxResultTextBlock.Text = string.Join(", ", selectedItems);
+
+
+<Image Source="Assets/logo.png" Stretch="UniformToFill" />
+
+
+
+<ToggleButton Name="MyToggleButton" Content="Premium Option" IsThreeState="True" Click="MyToggleButton_Click" />
+
+ToggleButtonResultTextBlock.Text = MyToggleButton.IsChecked.ToString();
+
+
+<ToggleSwitch>
+    <ToggleSwitch.OffContent>
+        <TextBlock Text="I'm off right now." />
+    </ToggleSwitch.OffContent>
+    <ToggleSwitch.OnContent>
+        <TextBlock Text="I'm on!" />
+    </ToggleSwitch.OnContent>
+</ToggleSwitch>
+
+
+UWP-021 - Implementing a Simple Hamburger Navigation Menu
+====================================
+Jerry Nixon's Example: http://bit.do/hamburger-nav
+
+Use Character Map to find the code to display icons using Segoe MDL5 Assets.
+
+Hamburger:  &#xE700;
+
+Use ListBox and ListBoxItems for the navigation links inside of a SplitView.
+
+
+
+
+
+
+
+

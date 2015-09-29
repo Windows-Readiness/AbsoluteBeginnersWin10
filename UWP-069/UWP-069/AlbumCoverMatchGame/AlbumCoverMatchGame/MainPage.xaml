@@ -1,0 +1,104 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AlbumCoverMatchGame"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:AlbumCoverMatchGame.Models"
+    xmlns:Universal="using:Microsoft.AdMediator.Universal"
+    x:Class="AlbumCoverMatchGame.MainPage"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Storyboard x:Name="CountDown" Completed="CountDown_Completed">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" 
+        		Storyboard.TargetName="MyProgressBar" 
+        		Storyboard.TargetProperty="(RangeBase.Value)">
+                <DiscreteDoubleKeyFrame KeyTime="0" Value="100" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:1" Value="100" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2" Value="90" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:3" Value="80" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:4" Value="70" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:5" Value="60" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:6" Value="50" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:7" Value="40" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:8" Value="30" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:9" Value="20" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:10" Value="10" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid Loaded="Grid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="110" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <ProgressBar x:Name="MyProgressBar" Maximum="100" Minimum="0" Value="100" Height="20" Foreground="Blue" Margin="20,20,20,20" />
+            <TextBlock x:Name="InstructionTextBlock" Text="" Foreground="Blue" HorizontalAlignment="Center" />
+            <MediaElement x:Name="MyMediaElement" AutoPlay="True" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="20">
+            <GridView Name="SongGridView" 
+                      ItemsSource="{x:Bind Songs}" 
+                      IsItemClickEnabled="True" 
+                      ItemClick="SongGridView_ItemClick">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Song">
+                        <Grid>
+                            <Image Name="AlbumArtImage" 
+                                   Height="75" 
+                                   Width="75" 
+                                   Source="{x:Bind AlbumCover}" />
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+            <TextBlock x:Name="ResultTextBlock" />
+            <TextBlock x:Name="TitleTextBlock" />
+            <TextBlock x:Name="ArtistTextBlock" />
+            <TextBlock x:Name="AlbumTextBlock" />
+            <Button x:Name="PlayAgainButton" 
+				Content="Play Again" 
+				Background="Red" 
+				HorizontalAlignment="Center" 
+				Visibility="Collapsed" 
+				Click="PlayAgainButton_Click" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <ProgressRing x:Name="StartupProgressRing" 
+				HorizontalAlignment="Center" 
+				VerticalAlignment="Center" 
+				Width="100" 
+				Height="100"
+				Foreground="Gray" />
+        </Grid>
+
+        <Universal:AdMediatorControl 
+            x:Name="AdMediator_40F141" 
+            HorizontalAlignment="Left" 
+            Height="90" 
+            Id="AdMediator-Id-610899D2-8A2D-422A-9F28-0B1412FD6EA4" 
+            Grid.Row="2" 
+            VerticalAlignment="Top" 
+            Visibility="Collapsed"
+            Width="728" 
+            Margin="10" />
+
+        <Button Grid.Row="2" 
+                Name="PurchaseButton" 
+                Content="Remove Ads" 
+                Click="PurchaseButton_Click" 
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Right" 
+                Margin="10" />
+        
+    </Grid>
+</Page>

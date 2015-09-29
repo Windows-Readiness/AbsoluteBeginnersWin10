@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="InAppPurchaseExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InAppPurchaseExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <Rectangle Name="FeatureRectangle" 
+                   Width="200" 
+                   Height="200" 
+                   Fill="Red" 
+                   Visibility="Collapsed" 
+                   HorizontalAlignment="Left" />
+        
+        <Button Name="PurchaseFeatureButton" 
+                Click="PurchaseFeatureButton_Click" 
+                Content="Purchase Rectangle"
+                Visibility="Collapsed" />
+    </StackPanel>
+
+</Page>

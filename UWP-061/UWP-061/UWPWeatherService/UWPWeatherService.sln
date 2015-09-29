@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWPWeatherService", "UWPWeatherService\UWPWeatherService.csproj", "{1C61F3F0-F944-4542-84B1-72D8343D9962}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{AAE53A79-4541-4E87-B585-C4CC40BC1878}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureVMPublishModule.psm1 = PublishScripts\AzureVMPublishModule.psm1
+		PublishScripts\Publish-WebApplicationVM.ps1 = PublishScripts\Publish-WebApplicationVM.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{5EEC4951-4CA0-4580-8B70-2F9BDC595B93}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\UWPWeatherService-WAWS-dev.json = PublishScripts\Configurations\UWPWeatherService-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C61F3F0-F944-4542-84B1-72D8343D9962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C61F3F0-F944-4542-84B1-72D8343D9962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C61F3F0-F944-4542-84B1-72D8343D9962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C61F3F0-F944-4542-84B1-72D8343D9962}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5EEC4951-4CA0-4580-8B70-2F9BDC595B93} = {AAE53A79-4541-4E87-B585-C4CC40BC1878}
+	EndGlobalSection
+EndGlobal

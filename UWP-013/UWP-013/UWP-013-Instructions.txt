@@ -1,0 +1,18 @@
+UWP-013 - Legendary Layout Challenge
+
+Use only StackPanel controls.
+I use the designer of a 13.3 Desktop (1280 x 720) 100% Scale.
+The large textblock's size is 48 points.  
+The left-most textblock is 250 pixels wide.
+The second textblock is 500 pixels wide.
+Get the text from the LoremIpsum.txt file.
+The third area is 300 pixels wide.
+Most of the margins are either 10 or 20 pixels.
+You'll need to use the TextWrapping property of the TextBlocks.
+
+Use this image as your guide: UWP-013-Screenshot.png
+
+Remember: Try to solve this without my help!
+Also: Only watch enough of the solution video to get unstuck.
+
+If you do solve it without my help, you should watch the entire solution video to see a different approach.

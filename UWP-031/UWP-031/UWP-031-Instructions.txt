@@ -1,0 +1,87 @@
+UWP-031 - Stupendous Styles Challenge
+
+Note: Even if you're fast and you don't make mistakes, this should take at least 45 miutes, more likely, 90 minutes.  Don't get discouraged if it takes you 4 hours or more!  Keep struggling!!!
+
+Specific Requirements
+=====================
+
+1. Use Styles as often as possible!  (That's the purpose of this challenge!)
+
+2. Use five pages:
+
+- MainPage.xaml
+- DonutPage.xaml
+- CoffeePage.xaml
+- SchedulePage.xaml
+- CompletePage.xaml
+
+3. MainPage.xaml will host navigation buttons across top (see screenshot).  Black background, white text, 18 point font, gray border on right (2px wide).  Each button will also host an icon and text (see screenshot).
+
+Hint: To create the large buttons, create a Grid with four columns, put a button in each column, then set the VerticalAlignment and HorizontalAlignment to Stretch to get it to stretch the size of the cell.  100 pixels tall for the buttons.
+
+4. On MainPage.xaml, split the bottom area 66% on left that hosts a Frame, and 33% on right that hosts the background.jpg image.
+
+When user clicks navigation button, load each of the next four XAML pages into the Frame.
+
+5. DonutPage.xaml will host the white logo and two slider controls set to a maximum of 24.  See screen shot.
+
+6. CoffeePage.xaml will host the white logo and three buttons.  Each button will utilize a flyout menu.  When the user selects items from the menu, update a TextBlock with the full order.  Here are the contents of each flyout menu:
+
+Roast
+-----
+None
+Dark
+Medium
+
+Sweetener
+---------
+None
+Sugar
+
+
+Cream
+---------
+None
+2% Milk
+Whole Milk
+
+When Roast is None, do not display anyting.
+
+When Roast is selected, display it in TextBlock.  If Sweetener and Cream are not None, display them, too.  Example:  
+
+Dark + 2% Milk + Sugar
+
+The Brown color you need for the background is: #3C1F19
+
+7. SchedulePage.xaml hosts a TimePicker and DatePicker.  Match colors, placeholder text and layout with the screenshot.
+
+8. CompletePage.xaml hosts the color version of the logo, and the ticket.jpg.  On top of the image, display the order number like so:
+
+Order
+96
+
+Match the placement, font, etc. to the screenshot.
+
+
+General Requirements
+====================
+
+9. The design should be responsive (resizable).
+
+10. Navigation buttons at top have a border thickness of 2 and a gray border brush.
+
+11. Most margins are 10 or 20.
+
+12. Most font sizes are 18.
+
+13. You will only need code behind for navigation ... do not add order or ecommerce logic unless noted above.
+
+
+Use these images as your guide: UWP-031-A.png through UWP-031-D.png
+
+Remember: Try to solve this without my help!
+Also: Only watch enough of the solution video to get unstuck.
+
+If you do solve it without my help, you should watch the entire solution video to see a different approach.
+
+

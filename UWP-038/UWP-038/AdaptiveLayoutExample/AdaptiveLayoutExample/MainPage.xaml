@@ -1,0 +1,114 @@
+﻿<Page
+    x:Class="AdaptiveLayoutExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdaptiveLayoutExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!-- Huge props to Jeff Prosise at Wintellect for this technique 
+         http://www.wintellect.com/devcenter/jprosise/using-adaptivetrigger-to-build-adaptive-uis-in-windows-10
+    -->
+
+    <Grid Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="First.(Grid.Row)" Value="0" />
+                        <Setter Target="First.(Grid.Column)" Value="0" />
+                        <Setter Target="Second.(Grid.Row)" Value="0" />
+                        <Setter Target="Second.(Grid.Column)" Value="1" />
+                        <Setter Target="Third.(Grid.Row)" Value="0" />
+                        <Setter Target="Third.(Grid.Column)" Value="2" />
+
+                        <Setter Target="First.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="Second.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="Third.(Grid.ColumnSpan)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="First.(Grid.Row)" Value="0" />
+                        <Setter Target="First.(Grid.Column)" Value="0" />
+                        <Setter Target="Second.(Grid.Row)" Value="1" />
+                        <Setter Target="Second.(Grid.Column)" Value="0" />
+                        <Setter Target="Third.(Grid.Row)" Value="2" />
+                        <Setter Target="Third.(Grid.Column)" Value="0" />
+
+                        <Setter Target="First.(Grid.ColumnSpan)" Value="3" />
+                        <Setter Target="Second.(Grid.ColumnSpan)" Value="3" />
+                        <Setter Target="Third.(Grid.ColumnSpan)" Value="3" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Name="First" Margin="20,20,0,0">
+                    <Image Source="Assets/Tibbles.jpg" HorizontalAlignment="Left" />
+                    <TextBlock>This is some information about Mr. Tibbles.</TextBlock>
+                </StackPanel>
+                <StackPanel Name="Second" Grid.Row="1" Margin="20,20,0,0">
+                    <TextBlock TextWrapping="Wrap">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Cras id orci iaculis, aliquet nibh at, dictum lorem. Vivamus 
+                        tempus tristique sollicitudin. Etiam interdum et lectus 
+                        semper molestie. Phasellus lobortis felis quis risus posuere, 
+                        id molestie mi sagittis. Cras odio leo, dictum vitae euismod et, 
+                        lacinia non lectus. Integer quis massa velit. Ut at dui 
+                        rutrum, venenatis dui a, pretium arcu. Nunc eu urna pulvinar, 
+                        condimentum sapien non, consectetur turpis. Pellentesque dapibus, 
+                        eros ac rutrum congue, quam dolor rhoncus nunc, ut sagittis nisl 
+                        urna in ante. Sed nunc libero, aliquet at elit eget, vulputate 
+                        ultrices leo. Aliquam vel sapien varius, blandit dui ac, 
+                        fringilla metus. Lorem ipsum dolor sit amet, consectetur 
+                        adipiscing elit. Fusce vehicula odio sit amet tortor lobortis 
+                        sagittis. Nullam vestibulum tortor eget risus vulputate, at 
+                        semper nunc pharetra. Nullam fringilla dapibus turpis non 
+                        vehicula. Proin sollicitudin sapien enim, at interdum risus 
+                        cursus quis.
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Name="Third" Grid.Row="2" Margin="20,20,0,0">
+                    <TextBlock TextWrapping="Wrap">
+                        Nam sollicitudin justo quis consequat molestie. Etiam dictum 
+                        sodales tellus, ut consectetur magna sodales in. Phasellus viverra 
+                        volutpat porttitor. Pellentesque sed condimentum neque. In 
+                        ultrices ex ac lacus tincidunt, eget euismod urna cursus. Donec tempor 
+                        mauris leo, ac cursus nisl tempus a. Aliquam dignissim eleifend lorem a 
+                        facilisis. Praesent tincidunt semper ante non ornare. Cras eleifend 
+                        eros et tincidunt auctor. Duis lorem nunc, dictum dignissim est vitae, 
+                        luctus dapibus lacus. Donec fringilla ipsum nec diam sagittis, 
+                        nec suscipit metus maximus. Aliquam aliquam non ante tincidunt 
+                        fringilla. Phasellus auctor, nisl non rutrum imperdiet, arcu
+                        purus pretium libero, nec eleifend metus turpis vel ante. Phasellus 
+                        sit amet rhoncus lectus.
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

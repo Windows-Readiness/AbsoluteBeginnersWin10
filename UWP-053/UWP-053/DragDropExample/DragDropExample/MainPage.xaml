@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="DragDropExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DragDropExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Name="MediaPlayerStoryboard">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(MediaElement.Volume)" Storyboard.TargetName="MediaPlayer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1.0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="1.0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9" Value="0.0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel Width="200" 
+                    Height="200" 
+                    AllowDrop="True" 
+                    Background="Red" 
+                    Drop="StackPanel_Drop" 
+                    DragOver="StackPanel_DragOver"  
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" />
+        <Image x:Name="ImageViewer" 
+               Width="200" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" />
+        <MediaElement 
+            x:Name="MediaPlayer" 
+            AutoPlay="True" 
+            Volume="0"  />
+        <TextBox Name="PathTextBox" FontSize="18" />
+    </StackPanel>
+</Page>

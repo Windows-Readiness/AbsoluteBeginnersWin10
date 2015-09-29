@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="ScrollViewerExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ScrollViewerExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer 
+            HorizontalScrollBarVisibility="Auto" 
+            VerticalScrollBarVisibility="Auto">
+            <Image Source="Assets/Financial.png" Height="800" Stretch="None" />
+        </ScrollViewer>
+
+        <!-- Stack panel kills a child ScrollViewer -->
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <ScrollViewer 
+            HorizontalScrollBarVisibility="Auto" 
+            VerticalScrollBarVisibility="Auto">
+                <Image Source="Assets/Financial.png" Height="800" Stretch="None" />
+            </ScrollViewer>
+        </StackPanel>
+
+        <!-- ScrollViewer can contain the stack panel -->
+        <ScrollViewer 
+                Grid.Row="1" 
+                Grid.Column="1"
+                HorizontalScrollBarVisibility="Auto" 
+                VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Image Source="Assets/Financial.png" Height="800" Stretch="None" />
+                <Image Source="Assets/Financial.png" Height="800" Stretch="None" />
+            </StackPanel>
+        </ScrollViewer>
+
+
+
+    </Grid>
+</Page>
+

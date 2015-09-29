@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="FakeNews.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FakeNews"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <RelativePanel>
+            <Button Name="HamburgerButton" 
+                    RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets" 
+                    Content="&#xE700;"
+                    FontSize="20"
+                    Width="45"
+                    Height="45"
+                    HorizontalAlignment="Center"
+                    Click="HamburgerButton_Click"
+                    />
+            
+            <TextBlock Name="TitleTextBlock" 
+                       RelativePanel.RightOf="HamburgerButton"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Margin="20,0,0,0" />
+            
+            <AutoSuggestBox Name="MyAutoSuggestBox"
+                            QueryIcon="Find" 
+                            PlaceholderText="Search" 
+                            RelativePanel.AlignRightWithPanel="True"
+                            Width="200"
+                            Margin="0,0,10,0" />
+        </RelativePanel>
+
+        <SplitView Name="MySplitView" 
+                   Grid.Row="1" 
+                   DisplayMode="CompactOverlay" 
+                   OpenPaneLength="150" 
+                   CompactPaneLength="45" >
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single" 
+                         SelectionChanged="ListBox_SelectionChanged">
+                    <ListBoxItem Name="Financial">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                                Text="&#xE80F;"
+                                FontFamily="Segoe MDL2 Assets" 
+                                FontSize="20" />
+                            <TextBlock Text="Financial" 
+                                       FontSize="18" 
+                                       Margin="20,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Food">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                                Text="&#xE1CE;"
+                                FontFamily="Segoe MDL2 Assets" 
+                                FontSize="20" />
+                            <TextBlock Text="Food" 
+                                       FontSize="18" 
+                                       Margin="20,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <GridView Name="NewsItemGrid" HorizontalAlignment="Stretch"
+                          Margin="10,0,0,0">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </SplitView.Content>
+        </SplitView>
+
+    </Grid>
+</Page>

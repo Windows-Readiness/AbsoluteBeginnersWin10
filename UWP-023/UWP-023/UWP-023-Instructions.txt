@@ -1,0 +1,37 @@
+UWP-022 - Hamburger Heaven
+
+1. You will need the two images available with the code for this lesson (Food.png and Financial.png).  Add them to your Assets folder.
+
+2. You must add two Pages to your app, Food.xaml and Financial.xaml.  Each of these pages will host a single Image control with its source set to Food.png or Financial.png, respectively.
+
+3. You must create an app featuring hamburger style navigation using a SplitView.  It must also display a Search bar in the upper-right-hand corner, a hamburger button the upper left-hand corner, a back button next to that, and the title of the page.
+
+4. You must create two navigation options: Financial and Food.  Each navigation option will have both an icon and text.
+
+5. In the main / center area, you will use a Frame.  When the application starts, the Financial.xaml page will be loaded into the Frame.
+
+6. Clicking the navigation will take you to either a page Food.xaml or Financial.xaml.
+
+7. The back arrow button should only be displayed when you are not viewing the home (Financial) page.
+
+8.  The search button and text box must be aligned to the right.  The button must have a search icon.  Try to figure out how to set the text in the textbox used as a placeholder.
+
+9.  The back button must use a back arrow icon.
+
+10. Font sizes include 24, 28, 36.
+
+11.  Colors include LightGray.
+
+Use these images as your guide: 
+
+UWP-023-A.png
+UWP-023-B.png
+UWP-023-C.png
+
+Remember: Try to solve this without my help!
+Also: Only watch enough of the solution video to get unstuck.
+
+If you do solve it without my help, you should watch the entire solution video to see a different approach.
+
+
+

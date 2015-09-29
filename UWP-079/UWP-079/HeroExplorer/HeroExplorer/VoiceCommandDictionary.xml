@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+  <CommandSet xml:lang="en-us" Name="ExampleAppCommandSet_en-us">
+    <CommandPrefix> Hero Explorer, </CommandPrefix>
+    <Example> Refresh the character list </Example>
+
+    <Command Name="refresh">
+      <Example> refresh the character list </Example>
+      <ListenFor> refresh [the] [character] list </ListenFor>
+      <ListenFor> refresh [the] characters </ListenFor>
+      <Feedback> Refreshing the character list </Feedback>
+      <Navigate/>
+    </Command>
+
+  </CommandSet>
+
+  <!-- Other CommandSets for other languages -->
+
+</VoiceCommands>

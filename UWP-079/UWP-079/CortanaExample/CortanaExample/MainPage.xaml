@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="CortanaExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CortanaExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+
+    <Grid Name="LayoutGrid">
+        <TextBlock Text="Say 'In example app, add a {color} rectangle' or 'In example app, add a {color} circle'." 
+                   Margin="25" 
+                   TextWrapping="Wrap" />
+    </Grid>
+</Page>
